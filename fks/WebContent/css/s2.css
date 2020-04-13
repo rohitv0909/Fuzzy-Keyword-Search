@@ -1,0 +1,37 @@
+body.patientreg
+{
+	background-image: url("/ediagnostic/images/i1.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
+
+body.pathoreg
+{
+	background-image: url("/ediagnostic/images/i1.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
+
+table.regpatho
+{
+	background-color: transparent;
+	width: 40%;
+	height: 350px;
+	margin-left: 100px;
+	margin-top: 100px;
+	font-size: 20px;
+	font-style: italic;
+	font-family: cursive;
+	font-weight: lighter;
+	color: gray;
+	border-radius: 50px ;
+	border: groove;
+	
+	
+}

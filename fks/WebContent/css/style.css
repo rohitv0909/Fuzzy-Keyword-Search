@@ -1,0 +1,16 @@
+body
+{
+	background-image: url("/ecollege/images/i2.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+table.design
+{
+	background-color: cyan;
+	width: 200px;
+	height: 100px;
+	margin-left: 40px;
+	font-size: 20px;
+	color: maroon;
+}
