@@ -163,6 +163,9 @@ color:#69c2bd;
 					<td align="center"><button type="submit">Submit</button></td>
 						<td align="center"><button type="reset">Reset</button></td>
 				</tr>
+				<tr>
+					<td align="center" colspan="2" style="height: 50px;"><a href="/fks/login.jsp" style="color: magenta;">Go to Login Page.</a></td>
+				</tr>
 			</table>
 		</form>
 	</div>

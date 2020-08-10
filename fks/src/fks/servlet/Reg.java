@@ -33,7 +33,7 @@ import java.sql.*;
 public class Reg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection cn;
-	private PreparedStatement ps1;
+	private PreparedStatement ps1,ps2;
 	private String host;
 	private String port;
 	private String user;
@@ -123,7 +123,14 @@ public class Reg extends HttpServlet {
 			ps1.setString(4,enmail);
 			ps1.setString(5,role);
 			if(role.equalsIgnoreCase("user"))
+			{
 				ps1.setString(6,null);
+				String auth="insert into auth values(?,?)";
+				ps2=cn.prepareStatement(auth);
+				ps2.setString(1, id);
+				ps2.setString(2, "no");
+				ps2.executeUpdate();
+			}
 			else
 				ps1.setString(6,getAlphaNumericString(16));
 			int rw = ps1.executeUpdate();

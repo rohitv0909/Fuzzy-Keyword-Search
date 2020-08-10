@@ -61,8 +61,10 @@ public class Login extends HttpServlet {
 		        {
 		        	HttpSession hs=request.getSession(); //create new session
 		        	String utype=rslogin.getString("role");
+		        	String umail=rslogin.getString("email");
 		        	hs.setAttribute("userid", id);
 		        	hs.setAttribute("userpass", utype);
+		        	hs.setAttribute("usermail", umail);
 		        	if(utype.equalsIgnoreCase("dataowner"))
 		        	{
 		        		String key=rslogin.getString("key");
@@ -71,6 +73,8 @@ public class Login extends HttpServlet {
 		        	}
 		        	else if(utype.equalsIgnoreCase("user"))
 		        		response.sendRedirect("/fks/user_home.jsp");
+		        	else if(utype.equalsIgnoreCase("cloudadmin"))
+		        		response.sendRedirect("/fks/cloud_home.jsp");
 		        }
 		        else
 		        {

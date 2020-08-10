@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Home</title>
+<title>User Home</title>
 <link rel="stylesheet"
 	href="/ediagnostic/bootstrapfiles/bootstrap.min.css" type="text/css">
 <script src="/ediagnostic/bootstrapfiles/bootstrap.min.js"></script>

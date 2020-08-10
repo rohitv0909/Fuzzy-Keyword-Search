@@ -36,9 +36,10 @@ textarea {
 	</div>
 	<div style="overflow-x:auto; width: 80%; height: 700px; float: left; background-image: url('/fks/images/docpat.jpg');">
 	<table style="margin-top: 100px;margin-left: 100px;font-size: 20px">
-		<tr><th>File Name</th>
+		<tr><th>File Name</th><th>Download</th>
 		</tr>
 		<%
+		String ms = (String) request.getAttribute("resultMessage");
 		HttpSession hs=request.getSession(false);
 		String uid=(String)hs.getAttribute("userid");
 		String sid=request.getParameter("sid");
@@ -46,13 +47,16 @@ textarea {
 		ResultSet rs=CrudOperation.fetchData(strsql);		
 		while(rs.next())
 		{
-			String fname=AES.decrypt(rs.getString("fname"),rs.getString("key"));
+			String enfname=rs.getString("fname");
+			String fname=AES.decrypt(enfname,rs.getString("key"));
+			String fpath="E:\\upload\\"+enfname;
 			String fnm=fname.substring(0, fname.indexOf("."));
 			if(fnm.equalsIgnoreCase(sid))
 			{
 			%>
 			<tr>
-			<td><%=fnm %></td>
+			<td><%=fname %></td>
+			<td><a href="DownloadServlet?valName=<%=enfname%>&key=<%=rs.getString("key")%>">Download</a></td>
 			</tr>
 			<%}
 			else if(edst.calculate(sid, fnm)<=3)
@@ -60,12 +64,28 @@ textarea {
 				%>
 				<tr>
 				<td><%=fname %></td>
+				<% String fnme=enfname; %>
+				<td><a href="DownloadServlet?valName=<%=enfname%>&key=<%=rs.getString("key")%>">Download</a></td>
+				</tr>
+				<%-- <%
+				if (ms != null) {
+				%>
+				<tr>
+				<td>Enter OTP</td>
+				<td><input type="text" id="txtuserotp" name="txtuserotp"
+						placeholder="enter otp" required></td>
+				</tr>
+				<tr>
+				<td colspan="2"><button type="submit">Submit</button></td>
 				</tr>
 				<%
+					}
+				%> --%>
+					<%
 			}
 		}
 		rs.close();%>
-		</table>	
+		</table>
 </div>
 </body>
 </html>
